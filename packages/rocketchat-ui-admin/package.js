@@ -24,6 +24,8 @@ Package.onUse(function(api) {
 	api.addFiles('admin/adminFlex.html', 'client');
 	api.addFiles('admin/adminInfo.html', 'client');
 
+	api.addFiles('admin/backuprestore/adminBackupRestore.html', 'client');
+
 	api.addFiles('admin/rooms/adminRooms.html', 'client');
 	api.addFiles('admin/rooms/adminRoomInfo.html', 'client');
 	api.addFiles('admin/rooms/adminRoomInfo.coffee', 'client');
@@ -41,11 +43,15 @@ Package.onUse(function(api) {
 	api.addFiles('admin/adminFlex.coffee', 'client');
 	api.addFiles('admin/adminInfo.coffee', 'client');
 
+	api.addFiles('admin/backuprestore/adminBackupRestore.coffee', 'client');
+
 	api.addFiles('admin/rooms/adminRooms.coffee', 'client');
 
 	api.addFiles('admin/users/adminInviteUser.coffee', 'client');
 	api.addFiles('admin/users/adminUserChannels.coffee', 'client');
 	api.addFiles('admin/users/adminUsers.coffee', 'client');
+
+	api.addFiles('server/methods/downloadBackup.coffee', 'server');
 
 	api.addFiles('publications/adminRooms.js', 'server');
 

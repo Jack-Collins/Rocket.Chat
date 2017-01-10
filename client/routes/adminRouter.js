@@ -6,6 +6,14 @@ FlowRouter.route('/admin/users', {
 	}
 });
 
+FlowRouter.route('/admin/backup-restore', {
+	name: 'admin-backup-restore',
+	action() {
+		RocketChat.TabBar.showGroup('backuprestore');
+		BlazeLayout.render('main', {center: 'adminBackupRestore'})
+	}
+})
+
 FlowRouter.route('/admin/rooms', {
 	name: 'admin-rooms',
 	action() {

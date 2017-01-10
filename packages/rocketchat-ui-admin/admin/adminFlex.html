@@ -17,6 +17,12 @@
 					</li>
 				{{/if}}
 
+				{{#if hasPermission 'run-import'}}
+					<li>
+						<a href="{{pathFor 'admin-backup-restore'}}" class="admin-link">{{_ "BackupRestore"}}</a>
+					</li>
+				{{/if}}
+
 				{{#if hasPermission 'view-room-administration'}}
 					<li>
 						<a href="{{pathFor 'admin-rooms'}}" class="admin-link">{{_ "Rooms"}}</a>

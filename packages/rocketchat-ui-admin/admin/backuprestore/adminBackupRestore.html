@@ -1,0 +1,35 @@
+<template name="adminBackupRestore">
+  <section class="page-container page-home page-static page-settings">
+		<header class="fixed-title border-component-color">
+      {{> burger}}
+      <h2>
+        <span class="room-title">{{_ "BackupRestore"}}</span>
+      </h2>
+    </header>
+    <div class="content">
+      {{#unless isAdmin}}
+        <p>You are not authorized to view this page.</p>
+      {{else}}
+        <div class="rocket-form">
+          <fieldset>
+            <div class="section">
+              <h1>Backup Rocket.Chat</h1>
+              <div class="section-content">
+                <div>Download a copy of restorable data</div>
+                <button class="button primary download-backup">Download Backup</button>
+              </div>
+            </div>
+            <div class="section">
+              <h1>Restore Rocket.Chat</h1>
+              <div class="section-content">
+                <div>Restore a Rocket.Chat backup</div>
+                <button class="button primary select-backup">Select Backup</button>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      {{/unless}}
+
+    </div>
+  </section>
+</template>
