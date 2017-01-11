@@ -51,8 +51,6 @@ Package.onUse(function(api) {
 	api.addFiles('admin/users/adminUserChannels.coffee', 'client');
 	api.addFiles('admin/users/adminUsers.coffee', 'client');
 
-	api.addFiles('server/methods/downloadBackup.coffee', 'server');
-
 	api.addFiles('publications/adminRooms.js', 'server');
 
 	// api.addAssets('styles/side-nav.less', 'client');
