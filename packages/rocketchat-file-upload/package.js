@@ -30,6 +30,7 @@ Package.onUse(function(api) {
 	api.addFiles('client/lib/fileUploadHandler.js', 'client');
 	api.addFiles('client/lib/FileUploadAmazonS3.js', 'client');
 	api.addFiles('client/lib/FileUploadGridFS.js', 'client');
+	api.addFiles('client/lib/FileUploadRestore.js', 'client');
 
 	api.addFiles('server/lib/FileUpload.js', 'server');
 	api.addFiles('server/lib/requests.js', 'server');
@@ -37,6 +38,7 @@ Package.onUse(function(api) {
 	api.addFiles('server/config/configFileUploadAmazonS3.js', 'server');
 	api.addFiles('server/config/configFileUploadFileSystem.js', 'server');
 	api.addFiles('server/config/configFileUploadGridFS.js', 'server');
+	api.addFiles('server/config/configFileUploadRestore.js', 'server');
 
 	api.addFiles('server/methods/sendFileMessage.js', 'server');
 

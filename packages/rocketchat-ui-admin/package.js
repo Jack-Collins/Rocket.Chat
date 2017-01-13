@@ -1,3 +1,10 @@
+Npm.depends({
+	'moment': '2.17.1',
+	'multiparty': '4.1.2',
+	'mongodb-backup': '1.6.9',
+	'mongodb-restore': '1.6.2'
+});
+
 Package.describe({
 	name: 'rocketchat:ui-admin',
 	version: '0.1.0',
@@ -16,7 +23,8 @@ Package.onUse(function(api) {
 		'templating',
 		'coffeescript',
 		'underscore',
-		'rocketchat:lib'
+		'rocketchat:lib',
+		'iron:router'
 	]);
 
 	// template files
@@ -52,6 +60,9 @@ Package.onUse(function(api) {
 	api.addFiles('admin/users/adminUsers.coffee', 'client');
 
 	api.addFiles('publications/adminRooms.js', 'server');
+
+	api.addFiles('server/routes/backup.coffee', 'server');
+	api.addFiles('server/methods/restoreBackup.coffee', 'server');
 
 	// api.addAssets('styles/side-nav.less', 'client');
 });

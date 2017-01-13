@@ -8,22 +8,33 @@
 		</header>
 	<div class="content">
 		{{#unless isAdmin}}
-			<p>You are not authorized to view this page.</p>
+			<p>{{_ "You_are_not_authorized_to_view_this_page"}}</p>
 		{{else}}
 			<div class="rocket-form">
 				<fieldset>
 					<div class="section">
 						<h1>Backup Rocket.Chat</h1>
 						<div class="section-content">
-							<div>Download a copy of restorable data</div>
-							  {{> appDumpDownload}}
+							<form method="GET" action="/admin/backup">
+								<input name="token" value="{{downloadToken}}" type="hidden">
+								<button class="button button-primary" id="download-backup">{{_ "Download"}}</button>
+							</form>
 						</div>
 					</div>
 					<div class="section">
 						<h1>Restore Rocket.Chat</h1>
 						<div class="section-content">
-							<div>Restore a Rocket.Chat backup</div>
-							{{> appDumpUpload}}
+							<form enctype="multipart/form-data">
+								{{#if uploading}}
+									{{#if restoring}}
+										<p>{{_ "Restoring_backup"}}</p>
+									{{else}}
+										<p>{{_ "Uploading_file"}}</p>
+									{{/if}}
+								{{else}}
+									<input name="restore" type="file" id="restore">
+								{{/if}}
+							</form>
 						</div>
 					</div>
 				</fieldset>

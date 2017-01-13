@@ -1106,6 +1106,8 @@
   "Reset_password": "Reset password",
   "Restart": "Restart",
   "Restart_the_server": "Restart the server",
+  "Restore_Confirm": "Do you really want to restore this backup file?",
+  "Restoring_backup": "Restoring backup...",
   "Role": "Role",
   "Role_Editing": "Role Editing",
   "Role_removed": "Role removed",
