@@ -82,9 +82,12 @@ Accounts.insertUserDoc = _.wrap Accounts.insertUserDoc, (insertUserDoc, options,
 	_id = insertUserDoc.call(Accounts, options, user)
 
 	# Add user to default channels
+	isGuest = user.username and user.username.match(/guest-\d/)
+
 	if user.username? and options.joinDefaultChannels isnt false and user.joinDefaultChannels isnt false
 		Meteor.runAsUser _id, ->
-			Meteor.call('joinDefaultChannels', options.joinDefaultChannelsSilenced)
+			silencedJoin = if isGuest then true else options.joinDefaultChannelsSilenced
+			Meteor.call('joinDefaultChannels', silencedJoin)
 
 	if roles.length is 0
 		# when inserting first user give them admin privileges otherwise make a regular user
@@ -93,6 +96,8 @@ Accounts.insertUserDoc = _.wrap Accounts.insertUserDoc, (insertUserDoc, options,
 			roles.push 'user'
 		else
 			roles.push 'admin'
+	if isGuest
+		roles = ['guest']
 
 	RocketChat.authz.addUserRoles(_id, roles)
 
