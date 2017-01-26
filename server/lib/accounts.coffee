@@ -82,7 +82,7 @@ Accounts.insertUserDoc = _.wrap Accounts.insertUserDoc, (insertUserDoc, options,
 	_id = insertUserDoc.call(Accounts, options, user)
 
 	# Add user to default channels
-	isGuest = user.username and user.username.match(/guest-\d/)
+	isGuest = user.username and user.emails[0]?.address.match(/anonymous-\d@rocket-chat\.guest/)
 
 	if user.username? and options.joinDefaultChannels isnt false and user.joinDefaultChannels isnt false
 		Meteor.runAsUser _id, ->
